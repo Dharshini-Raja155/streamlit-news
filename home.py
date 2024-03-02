@@ -24,7 +24,6 @@ st.write(hide_streamlit_style, unsafe_allow_html=True)
 def get_news(query):
     newsapi = NewsApiClient(api_key=os.getenv("apiKey"))
     top_headlines = newsapi.get_everything(q=query, language='en')
-    print(top_headlines)
     return News(**top_headlines)
     
     
@@ -46,7 +45,8 @@ def display(query):
             continue
 
 def main():
-    st.header("NEWS 360")
+    st.header("Dharshini's NEWS 360")
+    st.sidebar.header("Search")
     query_input = st.sidebar.text_input("Search", label_visibility="hidden")
     query = None
     if st.sidebar.button("Search"):
